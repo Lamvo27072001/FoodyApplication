@@ -1,0 +1,26 @@
+<resources>
+    <string name="hoac">Hoặc</string>
+    <string name="app_name">Foody Application</string>
+    <string name="tenquanan">Tên quán ăn</string>
+    <string name="giatoida">Giá tối đa</string>
+    <string name="giatoithieu">Giá tối thiểu</string>
+    <string name="giaohang">Giao hàng</string>
+    <string name="khonggiaohang">Không giao hàng</string>
+    <string name="giomocua">Giờ mở cửa</string>
+    <string name="giodongcua">Giờ đóng cửa</string>
+    <string name="chinhanh">Chi nhánh</string>
+    <string name="tenmon">Tên món</string>
+    <string name="giatien">Giá tiền</string>
+    <string name="luuquanan">Lưu quán ăn</string>
+    <string name="themthucdon">Thêm thực đơn</string>
+    <string name="title_activity_themquanan">Themquanan</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="textview">TextView</string>
+</resources>

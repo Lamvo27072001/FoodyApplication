@@ -22,7 +22,7 @@
             app:srcCompat="@drawable/foody1" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/txtUserName"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -37,7 +37,7 @@
             android:textColorHint="@color/colorAcent" />
 
         <EditText
-            android:id="@+id/editTextTextPassword2"
+            android:id="@+id/txtPassword"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -100,6 +100,25 @@
 
         </LinearLayout>
 
+
+        <com.google.android.gms.common.SignInButton
+
+            android:layout_width="346dp"
+            android:layout_height="51dp"
+            android:layout_gravity="center" />
+
+        <!--
+        -Your comment:
+        // Button này dùng để truy cập đăng nhập bằng google
+        -->
+        <com.facebook.login.widget.LoginButton
+            android:layout_width="342dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="Continue with Facebook"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
     </LinearLayout>
 
 

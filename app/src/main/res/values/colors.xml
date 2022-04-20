@@ -12,4 +12,5 @@
     <color name="colorPrimaryDark">#cd2027</color>
     <color name="colorAccent">#03cad5</color>
     <color name="transparentBackgroundLogin">#E6cd2027</color>
+    <color name="backgroundtrangchu">#ccc</color>
 </resources>

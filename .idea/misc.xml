@@ -4,13 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/FoodyApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26614583333333336" />
+        <entry key="..\:/FoodyApplication/app/src/main/res/drawable/custom_radio_angi.xml" value="0.1985" />
+        <entry key="..\:/FoodyApplication/app/src/main/res/drawable/custom_radio_odau.xml" value="0.1985" />
+        <entry key="..\:/FoodyApplication/app/src/main/res/drawable/custom_radiogroup_mainpage.xml" value="0.1985" />
+        <entry key="..\:/FoodyApplication/app/src/main/res/drawable/hover_radio_mainpage.xml" value="0.1985" />
+        <entry key="..\:/FoodyApplication/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1985" />
+        <entry key="..\:/FoodyApplication/app/src/main/res/drawable/ic_baseline_arrow_drop_down_24.xml" value="0.1985" />
+        <entry key="..\:/FoodyApplication/app/src/main/res/drawable/ic_baseline_message_24.xml" value="0.1985" />
+        <entry key="..\:/FoodyApplication/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1985" />
         <entry key="..\:/FoodyApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26614583333333336" />
         <entry key="..\:/FoodyApplication/app/src/main/res/drawable/radius_button.xml" value="0.26614583333333336" />
         <entry key="..\:/FoodyApplication/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/FoodyApplication/app/src/main/res/layout/activity_themquanan.xml" value="0.22509057971014493" />
         <entry key="..\:/FoodyApplication/app/src/main/res/layout/fragment_second.xml" value="0.22509057971014493" />
         <entry key="..\:/FoodyApplication/app/src/main/res/layout/layout_flashscreen.xml" value="0.2" />
-        <entry key="..\:/FoodyApplication/app/src/main/res/layout/layout_mainpage.xml" value="0.24547101449275363" />
+        <entry key="..\:/FoodyApplication/app/src/main/res/layout/layout_mainpage.xml" value="0.2" />
         <entry key="..\:/FoodyApplication/app/src/main/res/layout/login_layout.xml" value="0.2" />
       </map>
     </option>

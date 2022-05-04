@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundtrangchu"
+    tools:context="View.MainPageActivity"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAcent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mới nhất"
+            android:drawableBottom="@drawable/ic_baseline_arrow_drop_down_24"
+            android:background="@color/colorAcent"
+            />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundtrangchu"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Danh Mục"
+            android:drawableBottom="@drawable/ic_baseline_arrow_drop_down_24"
+            android:background="@color/colorAcent"
+            />
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundtrangchu"/>/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableBottom="@drawable/ic_baseline_arrow_drop_down_24"
+            android:background="@color/colorAcent"
+            android:text="Sài Gòn"/>
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorAcent"
+                    android:layout_margin="5dp"
+                    android:text="Gần 1"
+                    android:drawableLeft="@drawable/nearbyicon"
+                    android:padding="10dp"
+                    android:gravity="left|center"
+                    android:drawablePadding="10dp"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorAcent"
+                    android:layout_margin="5dp"
+                    android:text="Blog"
+                    android:drawableLeft="@drawable/ic_baseline_topic_24"
+                    android:padding="10dp"
+                    android:gravity="left|center"
+                    android:drawablePadding="10dp"
+                    android:textAllCaps="false"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorAcent"
+                    android:layout_margin="5dp"
+                    android:text="Giao Hàng"
+                    android:drawableLeft="@drawable/ic_baseline_two_wheeler_24"
+                    android:padding="10dp"
+                    android:gravity="left|center"
+                    android:drawablePadding="10dp"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorAcent"
+                    android:layout_margin="5dp"
+                    android:text="Game"
+                    android:drawableLeft="@drawable/ic_baseline_games_24"
+                    android:padding="10dp"
+                    android:gravity="left|center"
+                    android:drawablePadding="10dp"
+                    android:textAllCaps="false"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorAcent"
+                    android:layout_margin="5dp"
+                    android:text="Đánh giá"
+                    android:drawableLeft="@drawable/icon_review"
+                    android:padding="10dp"
+                    android:gravity="left|center"
+                    android:drawablePadding="10dp"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorAcent"
+                    android:layout_margin="5dp"
+                    android:text="Top Members"
+                    android:drawableLeft="@drawable/ic_baseline_thumb_up_24"
+                    android:padding="10dp"
+                    android:gravity="left|center"
+                    android:drawablePadding="10dp"
+                    android:textAllCaps="false"/>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

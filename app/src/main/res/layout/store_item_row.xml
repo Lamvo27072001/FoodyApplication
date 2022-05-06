@@ -34,13 +34,13 @@
                 android:layout_below="@id/thumbnail"
                 android:lines="2"
                 android:paddingLeft="@dimen/album_title_padding"
-                android:paddingRight="@dimen/album_title_padding"
                 android:paddingTop="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
                 android:textColor="#111"
                 android:textSize="11dp" />
 
             <TextView
-                android:id="@+id/price"
+                android:id="@+id/idStore"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/title"

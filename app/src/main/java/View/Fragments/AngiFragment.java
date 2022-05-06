@@ -23,23 +23,29 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import View.Fragments.Movie;
+import java.util.Map;
+
+import View.Fragments.Food;
 import hcmute.phamvohonglam19110154.foodyapplication.R;
 
 public class AngiFragment extends Fragment {
     private static final String TAG = AngiFragment.class.getSimpleName();
-    private static final String URL = "https://api.androidhive.info/json/movies_2017.json";
+    private static final String URL = "https://www.foody.vn/__get/Place/HomeListPlace?t=1651839485847&page=1&lat=10.823099&lon=106.629664&count=12&districtId=&cateId=&cuisineId=&isReputation=&type=1";
 
     private RecyclerView recyclerView;
-    private List<Movie> movieList;
+    private List<Food> foodList;
     private StoreAdapter mAdapter;
     public  AngiFragment(){
 
@@ -61,8 +67,8 @@ public class AngiFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_fragment_angi, container, false);
         recyclerView = view.findViewById(R.id.recyclerview_angi);
-        movieList = new ArrayList<>();
-        mAdapter = new StoreAdapter(getActivity(), movieList);
+        foodList = new ArrayList<>();
+        mAdapter = new StoreAdapter(getActivity(), foodList);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(8), true));
@@ -75,35 +81,57 @@ public class AngiFragment extends Fragment {
 
 
     private void fetchStoreItems() {
-        JsonArrayRequest request = new JsonArrayRequest(URL,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        if (response == null) {
-                            Toast.makeText(getActivity(), "Couldn't fetch the store items! Pleas try again.", Toast.LENGTH_LONG).show();
-                            return;
+        JsonObjectRequest request = new JsonObjectRequest(URL,
+                response -> {
+                    if (response == null) {
+                        Toast.makeText(getActivity(), "Couldn't fetch the " +
+                                "store items! Please try again.", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    ArrayList<Food> items = new ArrayList<>();
+
+                    try {
+                        JSONObject jsonObject = new JSONObject(response.toString());
+
+                        JSONArray jSONArray = jsonObject.getJSONArray("Items");
+
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            JSONObject store = jSONArray.getJSONObject(i);
+                            String storeId = store.getString("Id");
+                            String name = store.getString("Name");
+                            String address = store.getString("Address");
+                            String photoUrl = store.getString("PhotoUrl");
+
+                            items.add(new Food(storeId, "Sai Gon", name, address, photoUrl));
                         }
 
-                        List<Movie> items = new Gson().fromJson(response.toString(), new TypeToken<List<Movie>>() {
-                        }.getType());
+                        foodList.clear();
+                        foodList.addAll(items);
 
-                        movieList.clear();
-                        movieList.addAll(items);
-
-                        // refreshing recycler view
                         mAdapter.notifyDataSetChanged();
+                    } catch (JSONException e) {
+                        e.getStackTrace();
                     }
-                }, new Response.ErrorListener() {
+                },
+                error -> {
+                    // error in getting json
+                    Log.e(TAG, error.getMessage());
+                }) {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                // error in getting json
-                Log.e(TAG, "Error: " + error.getMessage());
-                Toast.makeText(getActivity(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            public Map<String, String> getHeaders() {
+                Map<String, String> params = new HashMap<>();
+                params.put("X-Requested-With", "XMLHttpRequest");
+                params.put("Cookie", "gcat=food; fd.res.view.217=990502; " +
+                        "__ondemand_sessionid=0plb3jqny0w21mwzcuj0ggxe; floc=217; flg=vn");
+
+                return params;
             }
-        });
+        };
 
         MyApplication.getInstance().addToRequestQueue(request);
     }
+
     public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
         private int spanCount;
@@ -148,24 +176,24 @@ public class AngiFragment extends Fragment {
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
     class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder> {
+        private final List<Food> foodList;
         private Context context;
-        private List<Movie> movieList;
 
         public class MyViewHolder extends RecyclerView.ViewHolder {
-            public TextView name, price;
+            public TextView name, idStore;
             public ImageView thumbnail;
 
             public MyViewHolder(View view) {
                 super(view);
                 name = view.findViewById(R.id.title);
-                price = view.findViewById(R.id.price);
+                idStore = view.findViewById(R.id.idStore);
                 thumbnail = view.findViewById(R.id.thumbnail);
             }
         }
 
-        public StoreAdapter(Context context, List<Movie> movieList) {
+        public StoreAdapter(Context context, List<Food> foodList) {
             this.context = context;
-            this.movieList = movieList;
+            this.foodList =foodList;
         }
 
         @Override
@@ -179,18 +207,18 @@ public class AngiFragment extends Fragment {
         @Override
         public void onBindViewHolder(MyViewHolder holder, final int position) {
 
-            final Movie movie = movieList.get(position);
-            holder.name.setText(movie.getTitle());
-            holder.price.setText(movie.getPrice());
+            final Food food = foodList.get(position);
+            holder.name.setText(food.getName());
+            holder.idStore.setText(food.getAddress());
 
             Glide.with(context)
-                    .load(movie.getImage())
+                    .load(food.getPhotoUrl())
                     .into(holder.thumbnail);
         }
 
         @Override
         public int getItemCount() {
-            return movieList.size();
+            return foodList.size();
         }
     }
 }
